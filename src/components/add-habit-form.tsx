@@ -1,7 +1,7 @@
 import {Box, Button, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material"
 import React, {useState} from 'react'
 import useHabitStore from "../store/store";
-
+import './styles.css'; 
 
 const AddHabitForm = () => {
     const [name, setName] = useState("");

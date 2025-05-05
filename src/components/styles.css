@@ -35,6 +35,35 @@ body {
     animation: glowingBar 2s ease-in-out infinite;
   }
   
+
+input::placeholder, select::placeholder, textarea::placeholder {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder {
+    opacity: 1;
+  }
+  
+
+  input, select, textarea {
+    background: #222;
+    border: 2px solid #00ff99;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: #00ff99;
+    box-shadow: 0 0 10px 3px #00ff99;
+    outline: none;
+  }
+  
+  
   @keyframes glowingBackground {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -46,4 +75,3 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  
