@@ -1,0 +1,49 @@
+body {
+    background: linear-gradient(135deg, #f7f8fc, #e0e7ff);
+    background-size: 400% 400%;
+    animation: glowingBackground 10s ease infinite;
+    font-family: 'Arial', sans-serif;
+    color: #000000;
+  }
+  
+  .glowing-card {
+    transition: all 0.3s ease-in-out;
+    background-color: #333;
+  }
+  
+  .glowing-card:hover {
+    box-shadow: 0 0 7px 3px rgba(0, 255, 153, 0.7);
+  }
+  
+  
+  .glowing-button {
+    border: 2px solid #00ff99;
+    color: #fff;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .glowing-button:hover {
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 10px 3px #00ff99;
+    color: #00ff99;
+    background-color: #333;
+  }
+  
+  .glowing-progress {
+    background: linear-gradient(45deg, #00ff99, #00cc99);
+    animation: glowingBar 2s ease-in-out infinite;
+  }
+  
+  @keyframes glowingBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes glowingBar {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
