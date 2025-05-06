@@ -1,0 +1,25 @@
+.calendar-container {
+    border-radius: 10px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .react-calendar {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+  }
+  
+  .react-calendar__tile--now {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+  }
+  
+  .highlighted {
+    background: #00ffd5 !important;
+    color: #000 !important;
+    border-radius: 6px;
+  }
+  

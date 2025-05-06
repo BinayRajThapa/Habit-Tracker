@@ -1,11 +1,13 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import useHabitStore, { Habit } from '../store/store';
 import { Box, Button, Grid, LinearProgress, Paper, Typography } from '@mui/material';
-import './styles.css'; 
+import HabitCalendar from './HabitCalendar';
+import './styles.css';
 
 const HabitList = () => {
   const { habits, removeHabit, toggleHabit } = useHabitStore();
   const today = new Date().toISOString().split('T')[0];
+  const [visibleCalendars, setVisibleCalendars] = useState<{ [key: string]: boolean }>({});
 
   const handleRemove = useCallback((id: string) => {
     removeHabit(id);
@@ -15,7 +17,14 @@ const HabitList = () => {
     toggleHabit(id, today);
   }, [toggleHabit, today]);
 
-   const getStreak = useMemo(() => {
+  const toggleCalendarVisibility = (id: string) => {
+    setVisibleCalendars((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const getStreak = useMemo(() => {
     return (habit: Habit) => {
       let streak = 0;
       const currentDate = new Date();
@@ -66,13 +75,27 @@ const HabitList = () => {
           </Grid>
 
           <Box sx={{ mt: 2 }}>
-            <Typography className="glowing-text"> Current Streak: {getStreak(habit)} </Typography>
+            <Typography className="glowing-text">Current Streak: {getStreak(habit)}</Typography>
             <LinearProgress
               variant='determinate'
               value={(getStreak(habit) / 30) * 100}
               sx={{ mt: 1 }}
               className="glowing-progress"
             />
+            <Button
+              onClick={() => toggleCalendarVisibility(habit.id)}
+              variant="text"
+              className="calendar-toggle-button"
+              sx={{ mt: 1 }}
+            >
+              {visibleCalendars[habit.id] ? "Hide Calendar" : "Show Calendar"}
+            </Button>
+
+            {visibleCalendars[habit.id] && (
+              <Box sx={{ mt: 2 }}>
+                <HabitCalendar completedDates={habit.completedDates} />
+              </Box>
+            )}
           </Box>
         </Paper>
       ))}
