@@ -2,7 +2,6 @@ import { Container, Typography } from '@mui/material';
 import './App.css'
 import AddHabitForm from './components/add-habit-form';
 import HabitList from './components/habit-list';
-import StreakLineChart from './components/StreakLineChart'; 
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       </Typography>
       <AddHabitForm />
       <HabitList />
-      <StreakLineChart /> 
     </Container>
   );
 }
